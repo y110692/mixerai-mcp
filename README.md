@@ -34,34 +34,32 @@ Models include Nano Banana, GPT Image, Seedream, Seedance, Kling, Veo, Grok Imag
 ## Connect
 
 ### Claude (claude.ai and Claude Desktop)
-1. Open **[Add custom connector](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Mixer%20AI&connectorUrl=https://mcp.mixerai.org/mcp)** — the form opens prefilled.
+1. Open **[Add custom connector](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Mixer%20AI&connectorUrl=https://mcp.mixerai.org/mcp)** — paste the server URL if the form is empty.
 2. Click **Add**, sign in to Mixer AI and allow access.
 3. In a chat enable Mixer AI under **+ → Connectors** and ask: `@Mixer AI …`
 
 ### ChatGPT
-1. In ChatGPT open **Settings → Apps & Connectors** (developer mode) and add a custom MCP server.
-2. Name: `Mixer AI`, URL: `https://mcp.mixerai.org/mcp`, authentication: OAuth.
+1. Open **[chatgpt.com/plugins](https://chatgpt.com/plugins)**, click **+ → Add custom MCP server** (available on eligible plans).
+2. Name: `Mixer AI`, URL: `https://mcp.mixerai.org/mcp`, authentication: OAuth → **Create**.
 3. Sign in to Mixer AI and ask in a chat: `@Mixer AI …`
 
 ### Claude Code
 ```bash
-claude mcp add --transport http mixer-ai https://mcp.mixerai.org/mcp
+claude mcp add --transport http --scope user mixerai https://mcp.mixerai.org/mcp
 ```
-Then run `/mcp` inside Claude Code, choose **mixer-ai** and sign in.
+Then run `/mcp` inside Claude Code, choose **mixerai** and sign in.
 
 ### Cursor
-**[Install in Cursor](https://cursor.com/install-mcp?name=mixer-ai&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm1peGVyYWkub3JnL21jcCJ9)** — or add to `~/.cursor/mcp.json`:
+**[Install in Cursor](https://cursor.com/install-mcp?name=mixerai&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm1peGVyYWkub3JnL21jcCJ9)** — or add to `~/.cursor/mcp.json`:
 ```json
-{ "mcpServers": { "mixer-ai": { "url": "https://mcp.mixerai.org/mcp" } } }
+{ "mcpServers": { "mixerai": { "url": "https://mcp.mixerai.org/mcp" } } }
 ```
 
 ### Codex
-Add to `~/.codex/config.toml`:
-```toml
-[mcp_servers.mixer-ai]
-url = "https://mcp.mixerai.org/mcp"
+```bash
+codex mcp add mixerai --url https://mcp.mixerai.org/mcp
+codex mcp login mixerai
 ```
-Then sign in: `codex mcp login mixer-ai`.
 
 ### Any other MCP client
 Add a remote MCP server with URL `https://mcp.mixerai.org/mcp` (Streamable HTTP) and sign in with OAuth.
@@ -86,11 +84,11 @@ Add a remote MCP server with URL `https://mcp.mixerai.org/mcp` (Streamable HTTP)
 
 **Адрес сервера:** `https://mcp.mixerai.org/mcp` · вход через аккаунт Mixer AI, без ключей.
 
-- **Claude:** откройте [окно добавления коннектора](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Mixer%20AI&connectorUrl=https://mcp.mixerai.org/mcp) — имя и адрес уже вписаны, нажмите «Добавить» и войдите.
-- **ChatGPT:** Настройки → Приложения и коннекторы (режим разработчика) → добавить свой MCP-сервер с этим адресом, вход через OAuth.
-- **Claude Code:** `claude mcp add --transport http mixer-ai https://mcp.mixerai.org/mcp`, затем `/mcp` и вход.
-- **Cursor:** [установить в Cursor](https://cursor.com/install-mcp?name=mixer-ai&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm1peGVyYWkub3JnL21jcCJ9).
-- **Codex:** блок `[mcp_servers.mixer-ai]` с `url = "https://mcp.mixerai.org/mcp"` в `~/.codex/config.toml`, затем `codex mcp login mixer-ai`.
+- **Claude:** откройте [окно добавления коннектора](https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=Mixer%20AI&connectorUrl=https://mcp.mixerai.org/mcp) — если поля пустые, вставьте адрес сервера, нажмите «Добавить» и войдите.
+- **ChatGPT:** [chatgpt.com/plugins](https://chatgpt.com/plugins) → «+» → добавить свой MCP-сервер с этим адресом, вход через OAuth.
+- **Claude Code:** `claude mcp add --transport http --scope user mixerai https://mcp.mixerai.org/mcp`, затем `/mcp` и вход.
+- **Cursor:** [установить в Cursor](https://cursor.com/install-mcp?name=mixerai&config=eyJ0eXBlIjoiaHR0cCIsInVybCI6Imh0dHBzOi8vbWNwLm1peGVyYWkub3JnL21jcCJ9).
+- **Codex:** `codex mcp add mixerai --url https://mcp.mixerai.org/mcp`, затем `codex mcp login mixerai`.
 
 Подключение бесплатно. Ассистент сначала показывает точную цену, монеты списываются только после вашего подтверждения — кнопкой в окне или ответом «Согласен».
 
