@@ -1,0 +1,21 @@
+{
+  "name": "mixerai",
+  "version": "1.0.0",
+  "description": "Create and edit images, video, music and voice with 100+ AI models and the Mixer AI Canvas, right from Cursor. OAuth sign-in, no API keys.",
+  "author": {
+    "name": "Mixer AI"
+  },
+  "homepage": "https://mixerai.org",
+  "repository": "https://github.com/y110692/mixerai-mcp",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "ai-image",
+    "ai-video",
+    "creative-tools",
+    "canvas"
+  ],
+  "logo": "assets/logo.png",
+  "mcpServers": "./mcp.json",
+  "skills": "./skills"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mixerai": {
+      "type": "http",
+      "url": "https://mcp.mixerai.org/mcp"
+    }
+  }
+}
